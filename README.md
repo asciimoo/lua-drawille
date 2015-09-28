@@ -18,7 +18,7 @@ for i=0,360*4 do
     end
 end
 
-c:frame()
+print c:frame()
 ```
 
 
