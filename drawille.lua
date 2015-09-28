@@ -1,5 +1,4 @@
-require "bit"
-require "io"
+bit=bit or require "bit"
 
 local pixel_map = {{0x01, 0x08},
                    {0x02, 0x10},
@@ -44,21 +43,23 @@ function Canvas.frame(self)
             maxcol = math.max(ck, maxcol)
         end
     end
+    local outstr=""
     for row=minrow,maxrow do
         if self.chars[row] then
             for col=mincol,maxcol do
                 if self.chars[row][col] then
                     local char = braille_char_offset + self.chars[row][col]
-                    io.stdout:write(string.char(128+64+32+bit.band(15, bit.rshift(char, 12))))
-                    io.stdout:write(string.char(bit.bor(128, bit.band(63, bit.rshift(char, 6)))))
-                    io.stdout:write(string.char(bit.bor(128, bit.band(char, 63))))
+                    outstr=outstr..string.char(128+64+32+bit.band(15, bit.rshift(char, 12)))
+                    outstr=outstr..string.char(bit.bor(128, bit.band(63, bit.rshift(char, 6))))
+                    outstr=outstr..string.char(bit.bor(128, bit.band(char, 63)))
                 else
-                    io.stdout:write(" ")
+                    outstr=outstr.." "
                 end
             end
         end
-        io.stdout:write("\n")
+        outstr=outstr.."\n"
     end
+    return outstr
 end
 
 return Canvas
