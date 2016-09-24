@@ -28,7 +28,7 @@ function Canvas.new()
     self.clear(self)
     -- This applies to waht Canvas.frame() will return.
     self.alpha_threshold = 10 -- Pixels with a alpha value below are printed as a space.
-    self.esccodes = true -- Turn ecsape codes off (false) to use only your Terminal Standard Color.
+    self.esccodes = false -- Turn ecsape codes off (false) to use only your Terminal Standard Color.
     return self
 end
 

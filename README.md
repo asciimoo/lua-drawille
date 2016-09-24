@@ -30,6 +30,7 @@ For usage with Curses see Examples.
 Canvas = require "drawille"
 
 local c = Canvas.new()
+c.esccodes = true
 for i=0,360*4 do
     if (i % 15) == 0 then
         local r = math.random(0,255)
