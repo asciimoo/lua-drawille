@@ -5,6 +5,7 @@ local pixel_map = {{0x01, 0x08},
                    {0x02, 0x10},
                    {0x04, 0x20},
                    {0x40, 0x80}}
+
 -- contains RGBA values, braille char retresentaion value and a UTF8 String that may be more than one char. 
 local Pixel = {}
 Pixel.new = function(str, braille_rep, r, g, b, a)
@@ -15,8 +16,10 @@ Pixel.new = function(str, braille_rep, r, g, b, a)
     b = b or 255, 
     a = a or 255}
 end
+
 -- braille unicode characters starts at 0x2800
 local braille_char_offset = 0x2800
+
 -- Creat new canvas with default values. 
 local Canvas = {}
 Canvas.__index = Canvas
@@ -24,13 +27,13 @@ function Canvas.new()
     local self = setmetatable({}, Canvas)
     self.clear(self)
     -- This applies to waht Canvas.frame() will return.
-    self.alpha_threshold = 10 -- Pixels with a alpha value below are printed as a space. 
+    self.alpha_threshold = 10 -- Pixels with a alpha value below are printed as a space.
     self.esccodes = true -- Turn ecsape codes off (false) to use only your Terminal Standard Color.
     return self
 end
+
 -- Clears the canvas and all pixels.
 function Canvas.clear(self)
-    self.chars = {}
     self.pixel_matrix = {}
     self.minrow = 0; self.mincol = 0;
     self.maxrow = 0; self.maxcol = 0;
@@ -38,49 +41,8 @@ function Canvas.clear(self)
     self.height = 0
 end
 
-function Canvas.set(self, x, y)
-    local row = math.floor(y / 4)
-    local col = math.floor(x / 2)
-    if self.chars[row] == nil then
-        self.chars[row] = {}
-    end
-    if self.chars[row][col] == nil then
-        self.chars[row][col] = 0
-    end
-    self.chars[row][col] = bit.bor(self.chars[row][col], pixel_map[(y % 4) + 1][(x % 2) + 1])
-end
-
-function Canvas.frame(self)
-    local mincol, maxcol, minrow, maxrow = 0, 0, 0, 0
-    for rk, rv in pairs(self.chars) do
-        minrow = math.min(rk, minrow)
-        maxrow = math.max(rk, maxrow)
-        for ck, cv in pairs(rv) do
-            mincol = math.min(ck, mincol)
-            maxcol = math.max(ck, maxcol)
-        end
-    end
-    local outstr=""
-    for row=minrow,maxrow do
-        if self.chars[row] then
-            for col=mincol,maxcol do
-                if self.chars[row][col] then
-                    local char = braille_char_offset + self.chars[row][col]
-                    outstr=outstr..string.char(128+64+32+bit.band(15, bit.rshift(char, 12)))
-                    outstr=outstr..string.char(bit.bor(128, bit.band(63, bit.rshift(char, 6))))
-                    outstr=outstr..string.char(bit.bor(128, bit.band(char, 63)))
-                else
-                    outstr=outstr.." "
-                end
-            end
-        end
-        outstr=outstr.."\n"
-    end
-    return outstr
-end
-
 -- Set a pixel on the canvas, if no RGB or A values are givven it defaults to white. 
-function Canvas.cset(self, x, y, r, g, b, a)
+function Canvas.set(self, x, y, r, g, b, a)
     local row = math.floor(y / 4)
     local col = math.floor(x / 2)
     if self.pixel_matrix[row] == nil then
@@ -108,7 +70,7 @@ function Canvas.cset(self, x, y, r, g, b, a)
 end
 
 -- Returns a string of the Frame.
-function Canvas.cframe(self)
+function Canvas.frame(self)
     local outstr=""
         for row=self.minrow, self.maxrow do
             for col=self.mincol, self.maxcol do
@@ -131,7 +93,7 @@ end
 
 -- convenience method for use with curses
 -- Prints the frame in curses Standard Screen.
-function Canvas.ccframe(self, curses)
+function Canvas.cframe(self, curses)
     if curses  then
         for row=self.minrow, self.maxrow do
             for col=self.mincol, self.maxcol do
@@ -156,7 +118,6 @@ end
 
 -- some functions to convert RGB values to a xterm-256colors index
 -- ACKNOWLEDGMENT http://stackoverflow.com/questions/38045839/lua-xterm-256-colors-gradient-scripting
-
 local abs, min, max, floor = math.abs, math.min, math.max, math.floor
 local levels = {[0] = 0x00, 0x5f, 0x87, 0xaf, 0xd7, 0xff}
 
