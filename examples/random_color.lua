@@ -1,7 +1,6 @@
 package.path = package.path .. ";../?.lua"
 local Canvas = require "drawille"
 local curses = require "curses"
-require 'color256'
 os.setlocale('')
 math.randomseed(os.time())
 
