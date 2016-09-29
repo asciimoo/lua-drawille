@@ -18,9 +18,30 @@ for i=0,360*4 do
     end
 end
 
-print c:frame()
+print(c:frame())
 ```
 
+### Usage with Colors
+Note: Color Resolution is peer Character, not per Subpixel of the [Braille][] characters.
+[Braille]: http://en.wikipedia.org/wiki/Braille
+For usage with Curses see Examples.
+
+```lua
+Canvas = require "drawille"
+
+local c = Canvas.new()
+c.esccodes = true
+for i=0,360*4 do
+    if (i % 15) == 0 then
+        local r = math.random(0,255)
+        local g = math.random(0,255)
+        local b = math.random(0,255)
+        c:set(i/15, math.floor(math.sin(i*(math.pi/180))*4),r,g,b)
+    end
+end
+
+print(c:frame())
+```
 
 ### Bugs
 
