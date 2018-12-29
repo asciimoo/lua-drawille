@@ -1,0 +1,108 @@
+return {
+scenes = {
+	['Scene'] = {
+		frame_start = 1.000000,
+		frame_end= 250.000000,
+		frame_step = 1.000000,
+		objects = {
+			['Viewpoint'] = {
+				num_frames = 1,
+				object_transform_array_offset = 0,
+			},
+			['Shape_IndexedFaceSet'] = {
+				num_frames = 1,
+				object_transform_array_offset = 64,
+			},
+		},
+	},
+},
+objects = {
+	['Shape_IndexedFaceSet'] = {
+		type = 'MESH',
+		data = 'Shape_IndexedFaceSet.002',
+	},
+	['Viewpoint'] = {
+		type = 'CAMERA',
+		data = 'Viewpoint.002',
+	},
+},
+meshes={
+	['Cube'] = {
+		num_triangles = 12,
+		num_verticies = 36,
+		uv_layers = {
+		},
+		weights_per_vertex = 0,
+		submeshes = {
+			{
+				material_name = 'Material',
+				triangle_no = 0,
+				triangle_count = 12,
+			},
+		},
+		index_array_offset = 128,
+		vertex_co_array_offset = 200,
+		vertex_normal_array_offset = 632,
+	},
+	['Shape_IndexedFaceSet'] = {
+		num_triangles = 20,
+		num_verticies = 60,
+		uv_layers = {
+		},
+		weights_per_vertex = 0,
+		submeshes = {
+			{
+				material_name = 'Material',
+				triangle_no = 0,
+				triangle_count = 20,
+			},
+		},
+		index_array_offset = 1064,
+		vertex_co_array_offset = 1184,
+		vertex_normal_array_offset = 1904,
+	},
+	['Shape_IndexedFaceSet.001'] = {
+		num_triangles = 20,
+		num_verticies = 60,
+		uv_layers = {
+		},
+		weights_per_vertex = 0,
+		submeshes = {
+			{
+				material_name = 'Material',
+				triangle_no = 0,
+				triangle_count = 20,
+			},
+		},
+		index_array_offset = 2624,
+		vertex_co_array_offset = 2744,
+		vertex_normal_array_offset = 3464,
+	},
+	['Shape_IndexedFaceSet.002'] = {
+		num_triangles = 36,
+		num_verticies = 108,
+		uv_layers = {
+		},
+		weights_per_vertex = 0,
+		submeshes = {
+			{
+				material_name = 'Material',
+				triangle_no = 0,
+				triangle_count = 36,
+			},
+		},
+		index_array_offset = 4184,
+		vertex_co_array_offset = 4400,
+		vertex_normal_array_offset = 5696,
+	},
+},
+armatures={
+},
+materials={
+	'Material',
+	'Shape',
+	'Shape.001',
+	'Shape.002',
+	'Shape.003',
+},
+}

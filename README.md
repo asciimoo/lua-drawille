@@ -3,6 +3,7 @@ lua-drawille
 
 
 Lua implementation of [drawille](http://github.com/asciimoo/drawille)
+Version 2.0 of [drawille](https://github.com/silizium/lua-drawille.git)
 
 
 ### Usage
@@ -42,13 +43,49 @@ end
 
 print(c:frame())
 ```
+### Added features with 2.0
+
+* point3D library with rudimentary backface culling
+* full support of turtle graphics 
+* lindenmayer algorithm
+* new "drawille drawing language" DDL 
+* shitload of additional examples, especially for Lindenmayer
+* Conways "Game of Life"
+* many new features
+* better 3D routines, lines, ellipses (now Bresenham), working polygons
+* more or less everything the Python version can do but more than that
+* remaining basically compatible to 1.0
+
+### Dependings
+
+* lcurses (sudo luarocks install lcurses)
+
+### ToDo
+
+* better, full 3D routines, using of GPU if available, matrix routines
+* replacing culling algorithm with more modern way, expanding 3D functionality
+* implementing load of 3D objects (working on that right now)
+* while everything is faster in this version, the "speed_test" is still slower than the Python version, because the data structure is different
+* porting data structure into Lua FFI implementation, no optimization done yet
+
+### Video Tutorials
+
+* https://www.youtube.com/watch?v=aHqVpk_EPGA
+* https://www.youtube.com/watch?v=IUMqfx5S-so
+* https://www.youtube.com/watch?v=D3qCxwQXOns
 
 ### Bugs
 
-Bugs or suggestions? Visit the [issue tracker](https://github.com/asciimoo/lua-drawille/issues).
+Bugs or suggestions? Visit the [issue tracker](https://github.com/silizium/lua-drawille/issues).
 
-(Tested only with `urxvt` terminal and `fixed` font.)
+Tested with 
+* `urxvt` terminal and `fixed` font 
+* 'Terminology' on Linux/Kubuntu 18.10 "Terminus (TTF)" Font
+* 'Terminator' on Linux/Kubuntu 18.10 
 
+Not correctly showing on 
+* 'Konsole' with color activated, any font
+* 'Cool Retro Term' on Linux/Kubuntu 18.10
 
 ### LICENSE
 
@@ -67,4 +104,5 @@ You should have received a copy of the GNU Affero General Public License
 along with drawille. If not, see < http://www.gnu.org/licenses/ >.
 
 (C) 2014- by Adam Tauber, <asciimoo@gmail.com>
+(CC) 2018 by Hanno Behrens, <behrens[DOT]hanno[AT]gmail[DOT]com>
 ```
