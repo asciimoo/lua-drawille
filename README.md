@@ -95,12 +95,12 @@ Bugs or suggestions? Visit the [issue tracker](https://github.com/silizium/lua-d
 
 Tested with 
 * `urxvt` terminal and `fixed` font 
-* 'Terminology' on Linux/Kubuntu 18.10 "Terminus (TTF)" Font
-* 'Terminator' on Linux/Kubuntu 18.10 
+* `Terminology` on Linux/Kubuntu 18.10 `Terminus (TTF)` Font
+* `Terminator` on Linux/Kubuntu 18.10 
 
 Not correctly showing on 
-* 'Konsole' with color activated, any font
-* 'Cool Retro Term' on Linux/Kubuntu 18.10
+* `Konsole` with color activated, any font
+* `Cool Retro Term` on Linux/Kubuntu 18.10
 
 ### LICENSE
 
