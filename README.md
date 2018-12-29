@@ -1,5 +1,9 @@
-lua-drawille
+Lua-DRAWILLE
 ============
+
+Draw graphics on the terminal with Braille charakters. Implements a small graphics kernel with a handfull of useful routines, like Line Bresenham and Ellipse, light 3D support and Turtle Graphics.
+
+Additionally the PGL "Primitive Graphics Language", that will plot a graph from a string and that is supported by the implementation of a Lindenmayer algorithm to create fractals.
 
 
 Lua implementation of [drawille](http://github.com/asciimoo/drawille)
