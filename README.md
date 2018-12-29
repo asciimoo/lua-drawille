@@ -22,6 +22,17 @@ end
 print(c:frame())
 ```
 
+!.[Drawille](docs/images/basic.png)
+!.[Drawille](docs/images/rotating_cube.png)
+!.[Drawille](docs/images/lines.png)
+!.[Drawille](docs/images/polygon.png)
+!.[Drawille](docs/images/random_color.png)
+!.[Drawille](docs/images/turtle.png)
+!.[Drawille](docs/images/turtle_hilbert.png)
+!.[Drawille](docs/images/turtle_sierpinski.png)
+!.[Drawille](docs/life.png)
+
+
 ### Usage with Colors
 Note: Color Resolution is peer Character, not per Subpixel of the [Braille][] characters.
 [Braille]: http://en.wikipedia.org/wiki/Braille
