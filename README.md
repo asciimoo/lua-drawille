@@ -30,7 +30,7 @@ print(c:frame())
 ![Turtle Graphics](docs/images/turtle.png)
 ![Hilbert Curve](docs/images/turtle_hilbert.png)
 ![Sierpinski Triangle](docs/images/turtle_sierpinski.png)
-![Game of Life](docs/life.png)
+![Game of Life](docs/images/life.png)
 
 
 ### Usage with Colors
