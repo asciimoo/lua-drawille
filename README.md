@@ -22,15 +22,15 @@ end
 print(c:frame())
 ```
 
-!.[Drawille](docs/images/basic.png)
-!.[Drawille](docs/images/rotating_cube.png)
-!.[Drawille](docs/images/lines.png)
-!.[Drawille](docs/images/polygon.png)
-!.[Drawille](docs/images/random_color.png)
-!.[Drawille](docs/images/turtle.png)
-!.[Drawille](docs/images/turtle_hilbert.png)
-!.[Drawille](docs/images/turtle_sierpinski.png)
-!.[Drawille](docs/life.png)
+![Sine](docs/images/basic.png)
+![Rotating Cube](docs/images/rotating_cube.png)
+![Lines](docs/images/lines.png)
+![Polygon](docs/images/polygon.png)
+![Random Colors](docs/images/random_color.png)
+![Turtle Graphics](docs/images/turtle.png)
+![Hilbert Curve](docs/images/turtle_hilbert.png)
+![Sierpinski Triangle](docs/images/turtle_sierpinski.png)
+![Game of Life](docs/life.png)
 
 
 ### Usage with Colors
