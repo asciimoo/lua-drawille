@@ -22,7 +22,6 @@ end
 print(c:frame())
 ```
 
-![Sine](docs/images/basic.png)
 ![Rotating Cube](docs/images/rotating_cube.png)
 ![Lines](docs/images/lines.png)
 ![Polygon](docs/images/polygon.png)
@@ -54,6 +53,8 @@ end
 
 print(c:frame())
 ```
+![Sine](docs/images/basic.png)
+
 ### Added features with 2.0
 
 * point3D library with rudimentary backface culling
