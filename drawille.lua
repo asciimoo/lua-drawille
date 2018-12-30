@@ -337,6 +337,7 @@ function Canvas:reset(x,y,dir,down)
 	self.y		=y or 0
 	self.dir	=dir or 0
 	self.down	=down or true
+	self.stack	={}
 end
 function Canvas:up()
 	self.down = false
@@ -370,6 +371,18 @@ end
 function Canvas:left(angle)
 	self.dir=self.dir-angle
 end
+function Canvas:push()
+	table.insert(self.stack, self.dir)
+	table.insert(self.stack, self.x)
+	table.insert(self.stack, self.y)
+	return self.dir, self.x, self.y
+end
+function Canvas:pop()
+	self.y=table.remove(self.stack)
+	self.x=table.remove(self.stack)
+	self.dir=table.remove(self.stack)
+	return self.dir, self.x, self.y
+end
 function Canvas:draw(str)
 	--[[
 	  Draw a lindenmayer string with the canvas draw "language"
@@ -384,6 +397,8 @@ function Canvas:draw(str)
 	   T - define turnsize (defaults 1 deg)
 	   X - eXchange rule with new one
 	   Z - Zufall (random) select symbol
+	   + Push pos+rotation
+	   - Pull pos+rotation
 	   <num> repeats following command num times
 	  @Return: self
 	]]
@@ -393,6 +408,10 @@ function Canvas:draw(str)
 			self.down=true
 			self:forward((rep>1 and rep or 1)*step)
 			rep=0
+		elseif c=="+" then -- push rot
+			self:push()
+		elseif c=="-" then -- pull rot
+			self:pop()
 		elseif c=="L" then -- turn left
 			self:left((rep>1 and rep or 1)*turn)
 			rep=0
