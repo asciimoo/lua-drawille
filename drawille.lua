@@ -434,7 +434,6 @@ function string:lindenmayer(n,subst)
 	subst=subst or {} --["A"]="LBFRAFARFBL",["B"]="RAFLBFBLFAR"}
 	for i=1,n do
 		self=self:gsub("X(.-)X(.-)X", function(k,v)
-			print(k,v)
 			subst[k]=v
 			return ""                                                            
 		end)
