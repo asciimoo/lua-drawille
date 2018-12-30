@@ -345,21 +345,21 @@ end
 function Canvas:down()
 	self.down = true
 end
-function Canvas:forward(step)
+function Canvas:forward(step, r, g, b)
 	local x = self.x + math.cos(math.rad(self.dir)) * step
 	local y = self.y + math.sin(math.rad(self.dir)) * step
 	--prev_brush_state = self.brush_on
 	--self.brush_on = True
-	self:move(x, y)
+	self:move(x, y, r, g, b)
 	--self.brush_on = prev_brush_state
 end
 function Canvas:back(step)
 	self:forward(-step)
 end
-function Canvas:move(x,y)
+function Canvas:move(x,y,r,g,b)
 	if self.down then
 		for lx, ly in Canvas.line(self.x, self.y, x, y) do
-			self:set(lx, ly)
+			self:set(lx, ly,r,g,b)
 		end
 	end
 	self.x = x
@@ -383,7 +383,7 @@ function Canvas:pop()
 	self.dir=table.remove(self.stack) or self.dir
 	return self.dir, self.x, self.y
 end
-function Canvas:draw(str)
+function Canvas:draw(str, r,g,b)
 	--[[
 	  Draw a lindenmayer string with the canvas draw "language"
 	  @Parameter: str the lindenmayer string
@@ -406,7 +406,7 @@ function Canvas:draw(str)
 	for c in str:gmatch(".") do
 		if c=="F" then 	-- forward
 			self.down=true
-			self:forward((rep>1 and rep or 1)*step)
+			self:forward((rep>1 and rep or 1)*step, r, g, b)
 			rep=0
 		elseif c=="+" then -- push rot
 			self:push()
