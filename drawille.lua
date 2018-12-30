@@ -378,9 +378,9 @@ function Canvas:push()
 	return self.dir, self.x, self.y
 end
 function Canvas:pop()
-	self.y=table.remove(self.stack)
-	self.x=table.remove(self.stack)
-	self.dir=table.remove(self.stack)
+	self.y=table.remove(self.stack) or self.y
+	self.x=table.remove(self.stack) or self.x
+	self.dir=table.remove(self.stack) or self.dir
 	return self.dir, self.x, self.y
 end
 function Canvas:draw(str)
