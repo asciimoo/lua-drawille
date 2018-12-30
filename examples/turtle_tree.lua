@@ -10,5 +10,5 @@ local str=arg[2] or "2S25TXFXFFXXAXFR++A-LA-LF+LFA-RAXA"
 -- Draw Lindenmayer Tree 
 str=str:lindenmayer(depth)
 print(str)
-c:draw(str, 0, 255, 127)
+c:draw(str, 107, 142, 35)
 print(c:frame())
