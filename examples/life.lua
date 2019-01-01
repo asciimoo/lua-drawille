@@ -49,16 +49,19 @@ for x=1,width do for y=1,height do
 	if math.random(4)==1 then c[c1]:set(x,y) end
 end end
 
-local birth,survive=arg[1] and {} or {[3]=true},arg[2] and {} or {[2]=true}
-if arg[1] then
-	for c in arg[1]:gmatch("%d") do
-		birth[tonumber(c)]=true
-	end
+--[[
+  Conways Game of Life
+  Argument: 23/3 (default Conway world, with 2+3 survival, 3 birth
+  first argument in form of <survival>/<birth> makes the new world
+]]
+
+local cs, cb=arg[1] and arg[1]:match("(%d+)/(%d+)") or "23","3"
+local birth,survive={},{}
+for c in cb:gmatch("%d") do
+	birth[tonumber(c)]=true
 end
-if arg[2] then
-	for c in arg[2]:gmatch("%d") do
-		survive[tonumber(c)]=true
-	end
+for c in cs:gmatch("%d") do
+	survive[tonumber(c)]=true
 end
 
 repeat
