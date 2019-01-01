@@ -51,8 +51,14 @@ end end
 
 --[[
   Conways Game of Life
-  Argument: 23/3 (default Conway world, with 2+3 survival, 3 birth
+  Argument: 23/3 (default Conway world, with 2+3 survival, 3 birth)
   first argument in form of <survival>/<birth> makes the new world
+  Examples
+  3/3 13/3 23/3 (Conway) 34/3 (4G3) 35/3 236/3 135/35 12345/3 
+  1357/1357 (copyworld) 24/35 0123/01234 (blinking spotworld)
+  01234678/0123478 Anti-Conway
+  02468/02468 Anti-Copy
+  01234678/0123678 Anti 4G3
 ]]
 
 local cs, cb=arg[1] and arg[1]:match("(%d+)/(%d+)") or "23","3"
