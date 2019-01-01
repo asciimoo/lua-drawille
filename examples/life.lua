@@ -48,6 +48,19 @@ c[c1]:set(2,1) c[c1]:set(3,2) c[c1]:set(1,3) c[c1]:set(2,3) c[c1]:set(3,3)
 for x=1,width do for y=1,height do
 	if math.random(4)==1 then c[c1]:set(x,y) end
 end end
+
+local birth,survive=arg[1] and {} or {[3]=true},arg[2] and {} or {[2]=true}
+if arg[1] then
+	for c in arg[1]:gmatch("%d") do
+		birth[tonumber(c)]=true
+	end
+end
+if arg[2] then
+	for c in arg[2]:gmatch("%d") do
+		survive[tonumber(c)]=true
+	end
+end
+
 repeat
 --    stdscr:erase() -- use erase() not clear() to remove flickering
 	stdscr:mvaddstr(0,0,"")
@@ -56,9 +69,9 @@ repeat
 		for x=1, width do
 			local pixel=c[c1]:get(x,y)
 			local n=c[c1]:neighbors(x,y,width,height)
-			if n==3 then
+			if birth[n] then
 				c[c2]:set(x,y)
-			elseif n==2 and pixel then
+			elseif survive[n] and pixel then
 				c[c2]:set(x,y)
 			end
 		end
