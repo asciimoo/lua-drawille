@@ -44,21 +44,21 @@ end
 local vertices = {}
 -- initialize
 local size=1000
-for z=200,490,10 do addstars(vertices,20,z,size) end
+for z=200,490,10 do addstars(vertices,30,z,size) end
 local function starfield()
     local angleX, angleY, angleZ = 0, 0, 0
     local c = Canvas()
     repeat
-		addstars(vertices, 20, 500, size)
+		addstars(vertices, 30, 500, size)
         -- Will hold transformed vertices.
         local t = {}
 
         for i=#vertices,2,-2 do
 			v1,v2=vertices[i], vertices[i-1]
             t[#t+1]=v1:project(width*.6,height*.3,70,50)
-			v1.z=v1.z+7
+			v1.z=v1.z+10
             t[#t+1]=v2:project(width*.6,height*.3,70,50)
-			v2.z=v2.z+7
+			v2.z=v2.z+10
 			if v1.z>-80 or v2.z>-80 then
 				table.remove(vertices, i)
 				table.remove(vertices, i-1)
