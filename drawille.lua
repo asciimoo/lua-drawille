@@ -206,10 +206,10 @@ end
 -- convenience method for use with curses
 -- Prints the frame in curses Standard Screen.
 function Canvas.cframe(self, curses, mincol, minrow, maxcol, maxrow)
-	mincol=mincol or self.mincol
-	minrow=minrow or self.minrow
-	maxcol=maxcol or self.maxcol
-	maxrow=maxrow or self.maxrow
+	mincol=math.floor(mincol or self.mincol)
+	minrow=math.floor(minrow or self.minrow)
+	maxcol=math.floor(maxcol or self.maxcol)
+	maxrow=math.floor(maxrow or self.maxrow)
 	local stdscr=curses.stdscr()
     if curses  then
         for row=minrow, maxrow do
