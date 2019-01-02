@@ -86,10 +86,11 @@ print(c:frame())
 
 ### Video Tutorials
 
-* https://www.youtube.com/watch?v=aHqVpk_EPGA
-* https://www.youtube.com/watch?v=IUMqfx5S-so
-* https://www.youtube.com/watch?v=D3qCxwQXOns
-* https://www.youtube.com/watch?v=L9th_TFU3fw
+* https://www.youtube.com/watch?v=aHqVpk_EPGA 3D Cube
+* https://www.youtube.com/watch?v=IUMqfx5S-so Koch Snowflake
+* https://www.youtube.com/watch?v=D3qCxwQXOns Game of Life
+* https://www.youtube.com/watch?v=L9th_TFU3fw Lindenmayer
+* https://www.youtube.com/watch?v=NaZ4_mBrXM4 Starfield
 
 ### Bugs
 
