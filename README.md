@@ -4,6 +4,7 @@ Lua-DRAWILLE
 [![Generic badge](https://img.shields.io/badge/Lua-5.2-44cc11.svg)](https://shields.io/)
 [![Generic badge](https://img.shields.io/badge/Lua-5.3-44cc11.svg)](https://shields.io/)
 [![Generic badge](https://img.shields.io/badge/LuaJIT-2.0-44cc11.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/LuaJIT-2.1-44cc11.svg)](https://shields.io/)
 
 Draw graphics on the terminal with Braille charakters. Implements a small graphics kernel with a handfull of useful routines, like Line Bresenham and Ellipse, light 3D support and Turtle Graphics.
 
