@@ -1,3 +1,4 @@
+#!/usr/bin/env luajit
 package.path = package.path .. ";../?.lua"
 local curses = require "curses"
 os.setlocale('')
@@ -25,7 +26,7 @@ if curses.has_colors() then
         local diag = string.format( "Your Terminal settings support %i colors.", curses.colors())
         print(diag)
         os.execute("echo Your Terminal Setting = $TERM")
-        print("It sould be xterm-256color in order to work.")
+        print("It should be xterm-256color in order to work.")
         print("try 'export TERM=xterm-256color' ")
         os.exit(0)
     end
@@ -53,13 +54,17 @@ while true do
 
     stdscr:addstr("Congratulations, You have 256 colors. \n")
     stdscr:addstr("Press Q to Quit. \n")
+	for i=1,32 do
+		stdscr:addstr(i%10)
+	end
+	stdscr:addstr("\n")
     local cstr = ""
     for i=1,curses.colors() do
         local cc = curses.color_pair(i)
         stdscr:attron(cc)
-        stdscr:addstr("█")
+        stdscr:addstr("●") --"█")
         stdscr:attroff(cc)
-        if i % 26 == 0 then
+        if i % 32 == 0 then
         stdscr:addstr("\n")
         end
     end 

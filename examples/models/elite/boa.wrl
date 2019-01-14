@@ -1,0 +1,54 @@
+#VRML V2.0 utf8
+
+Shape {
+	geometry IndexedFaceSet {
+		coordIndex [
+			0, 4, 9, -1,
+			0, 4, 5, -1,
+			0, 5, 6, -1,
+			0, 6, 7, -1,
+			0, 7, 8, -1,
+			0, 8, 9, -1,
+			1, 4, 5, -1,
+			1, 4, 9, 3, 12, 10, -1,
+			1, 5, 6, 2, 11, 10, -1,
+			2, 6, 7, -1,
+			2, 7, 8, 3, 12, 11, -1,
+			3, 8, 9, -1,
+			10, 11, 12, -1
+		]
+
+		coord Coordinate { point [
+				0 0 93,
+				0 40 -87,
+				38 -25 -99,
+				-38 -25 -99,
+				-38 40 -59,
+				38 40 -59,
+				62 0 -67,
+				24 -65 -79,
+				-24 -65 -79,
+				-62 0 -67,
+				0 7 -107,
+				13 -9 -107,
+				-13 -9 -107
+			]
+		}
+
+		solid FALSE
+	}
+
+	appearance Appearance {
+		material Material {
+			shininess 0.2
+			specularColor 1 1 1
+			diffuseColor 0.8 0.8 0.9
+		}
+	}
+}
+
+NavigationInfo { type "EXAMINE" }
+
+Viewpoint {
+	position 0 0 600
+}
